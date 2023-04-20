@@ -1,8 +1,57 @@
 import { useState } from 'react'
 import './App.css'
+import Trivia from './components/Trivia';
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
+  const [timeOut, setTimeOut] = useState(false);
+
+  const data = [
+    {
+      id:1,
+      question: "What makes you feel Good?",
+      answers: [
+        {
+          text: "Sleep",
+          correct:false,
+        },
+        {
+          text: "Sleep",
+          correct:false,
+        },
+        {
+          text: "Sleep",
+          correct:true,
+        },
+        {
+          text: "Sleep",
+          correct:false,
+        }
+      ]
+    },
+    {
+      id:2,
+      question: "What makes you feel Bad?",
+      answers: [
+        {
+          text: "Sleep",
+          correct:false,
+        },
+        {
+          text: "Sleep",
+          correct:false,
+        },
+        {
+          text: "Sleep",
+          correct:true,
+        },
+        {
+          text: "Sleep",
+          correct:false,
+        }
+      ]
+    }
+  ];
 
   const moneyTable = [
     {id:1, amount:"$ 100"},
@@ -26,7 +75,9 @@ function App() {
         <div className="top">
           <div className="timer">30</div>
         </div>
-        <div className="bottom">Question/Answers</div>
+        <div className="bottom">
+          <Trivia data={data} setTimeOut={setTimeOut} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber}/>
+        </div>
       </div>
 
       <div className="moneyTable">
